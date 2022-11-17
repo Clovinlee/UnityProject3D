@@ -13,14 +13,12 @@ public class OnHoverGlow : MonoBehaviour
 
     void OnMouseEnter()
     {
-        Debug.Log("MOUSE ENTER");
         Outline ot = this.gameObject.GetComponent<Outline>();
         ot.OutlineWidth = 5;
     }
 
     void OnMouseExit()
     {
-        Debug.Log("EXIT");
         Outline ot = this.gameObject.GetComponent<Outline>();
         ot.OutlineWidth = 0;
     }
