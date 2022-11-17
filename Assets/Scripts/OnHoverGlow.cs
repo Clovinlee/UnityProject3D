@@ -15,12 +15,34 @@ public class OnHoverGlow : MonoBehaviour
     {
         Outline ot = this.gameObject.GetComponent<Outline>();
         ot.OutlineWidth = 5;
+        
+        if(transform.childCount > 0){
+            //gameObject has Children
+            foreach (Transform child in transform)
+            {   
+                Outline otChild = child.GetComponent<Outline>();
+                if(otChild != null){
+                    otChild.OutlineWidth = 5;
+                }
+            }
+        }
     }
 
     void OnMouseExit()
     {
         Outline ot = this.gameObject.GetComponent<Outline>();
         ot.OutlineWidth = 0;
+
+        if(transform.childCount > 0){
+            //gameObject has Children
+            foreach (Transform child in transform)
+            {   
+                Outline otChild = child.GetComponent<Outline>();
+                if(otChild != null){
+                    otChild.OutlineWidth = 0;
+                }
+            }
+        }
     }
 
     void Update()
