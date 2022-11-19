@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Models/Dark UI/Scenes/Main Menu (Desktop).unity
+    guid: 6f8f43fe39c69494bbbe252a41e42ced
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 2beb379c3ad78184ea5b9150d728f773
   m_configObjects: {}
