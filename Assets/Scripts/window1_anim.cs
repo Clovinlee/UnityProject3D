@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class window1_anim : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class window1_anim : MonoBehaviour
 
     void OnMouseDown()
     {
+        if(EventSystem.current.IsPointerOverGameObject()){
+            return;
+        }
+        
         AnimatorStateInfo aninfo = an.GetCurrentAnimatorStateInfo(0);
 
 

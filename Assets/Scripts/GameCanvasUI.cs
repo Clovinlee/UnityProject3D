@@ -32,6 +32,8 @@ public class GameCanvasUI : MonoBehaviour
     IEnumerator closeDescriptionPanel(float time)
     {
         yield return new WaitForSeconds(time);
+        GameState.objActive.GetComponent<Animator>().SetInteger("move",0);
+        GameState.objActive = null;
         panelDescription.SetActive(false);
     }
 
