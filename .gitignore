@@ -58,5 +58,17 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-/Assets/Models/*
-/Assets/Resources/*
+Assets/Models/*
+Assets/Resources/*
+!Assets/Models/Dark UI/
+Assets/Models/Dark UI/Animations
+Assets/Models/Dark UI/Documentation
+Assets/Models/Dark UI/Editor
+Assets/Models/Dark UI/Fonts
+Assets/Models/Dark UI/Materials
+Assets/Models/Dark UI/Prefabs
+Assets/Models/Dark UI/Scripts
+Assets/Models/Dark UI/Shaders
+Assets/Models/Dark UI/Sounds
+Assets/Models/Dark UI/Textures
+# !Assets/Models/Dark UI/Scenes/*
