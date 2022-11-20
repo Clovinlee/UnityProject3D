@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class OnHoverGlow : MonoBehaviour
 {
@@ -14,10 +13,6 @@ public class OnHoverGlow : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if(EventSystem.current.IsPointerOverGameObject()){
-            return;
-        }
-
         Outline ot = this.gameObject.GetComponent<Outline>();
         ot.OutlineWidth = 5;
         

@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.EventSystems;
 
 public class ObjectClick : MonoBehaviour
 {
 
     public GameObject descriptionPanel;
+    public string txtTitle;
+    public string txtBody;
+    public string txtImg;
 
     private Animator an;
-    public int id;
 
     // Start is called before the first frame update
     void Start()
@@ -21,28 +22,12 @@ public class ObjectClick : MonoBehaviour
 
     void OnMouseDown()
     {
-
-        if(EventSystem.current.IsPointerOverGameObject() || GameState.objActive != null){
-            return;
-        }
-
-        GameState.objActive = gameObject;
-
+        DataDescription d = new DataDescription(txtTitle,txtBody,txtImg);
+        changeText(descriptionPanel, d);
+        //TODO : ANimation + click + panel
         AudioSource asource = gameObject.GetComponent<AudioSource>();
         asource.Play();
-        an.SetInteger("move",1);
-        StartCoroutine(waitForAnim(an.GetCurrentAnimatorStateInfo(0).length+0.5f));
-        
-    }
-
-    // StartCoroutine(closeDescriptionPanel(0.15f));
-
-    IEnumerator waitForAnim(float time)
-    {
-        yield return new WaitForSeconds(time);
-        changeText(descriptionPanel, DataDescription.listData[id]);
         descriptionPanel.SetActive(true);
-        // panelDescription.SetActive(false);
     }
 
     public void changeText(GameObject pl, DataDescription data){
@@ -58,6 +43,6 @@ public class ObjectClick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        
     }
 }
