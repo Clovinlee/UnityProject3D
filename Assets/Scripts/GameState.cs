@@ -15,6 +15,9 @@ public class GameState : MonoBehaviour
 
     public GameObject sirenLight;
 
+    public static int doorBreak = 5;
+    public static int windowBreak = 10;
+
     void Start()
     {
         asource = gameObject.GetComponent<AudioSource>();
@@ -23,8 +26,8 @@ public class GameState : MonoBehaviour
     }
 
     float getRandom(){
-        return Random.Range(70f,140f);
-        // return 30f;
+        // return Random.Range(70f,140f);
+        return 30f;
     }
 
     IEnumerator playCop(float time)

@@ -12,6 +12,7 @@ public class DataDescription
     public static List<DataDescription> listData = new List<DataDescription>(){
         new DataDescription(0,"Bucket","Just an ordinary bucket with nothing special","victim"),
         new DataDescription(1,"Tissue","Its a white tissue","imageHose"),
+        new DataDescription(2,"Pisau","Ini adalah pisau yang digunakan untuk memasak","imgHose"),
     };
 
     public DataDescription(int id, string title, string body, string img)

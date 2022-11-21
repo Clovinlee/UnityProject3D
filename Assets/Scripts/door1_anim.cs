@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class door1_anim : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private AudioSource asource;
+
+    public AudioClip doorBreak;
+    public AudioClip doorLockBroke;
+    public AnimationClip breakAnimation;
     private Animator an;
+    private AudioSource asource;
+    private bool accessible;
+    private bool clickable;
     void Start()
     {
+        an = gameObject.GetComponent<Animator>();
         asource = gameObject.GetComponent<AudioSource>();
-        an =  gameObject.GetComponent<Animator>();
+        accessible = false;
+        clickable = true;
     }
 
     void OnMouseDown()
@@ -20,26 +26,56 @@ public class door1_anim : MonoBehaviour
         if(EventSystem.current.IsPointerOverGameObject()){
             return;
         }
-
         AnimatorStateInfo aninfo = an.GetCurrentAnimatorStateInfo(0);
 
+        if(GameState.doorBreak > 0 && clickable){
+            if(aninfo.normalizedTime > 1.0f){
+                clickable = false;
+                an.SetTrigger("door1_break");
+                asource.PlayOneShot(doorBreak);
 
-        if(aninfo.normalizedTime > 1.0f){
-            // Debug.Log(an.GetInteger("door1_open"));
-            // if(an.GetInteger("door1_open") == 1){
-            //     asource.time = 1.5f;
-            // }
+                //Because door rotation animation dont always return to 0,0,0 idk why. So i do this V to reset rotation
+                //everytime animation done executing
+                StartCoroutine(resetDoorPosition(aninfo.length));
+                GameState.doorBreak--;
+            }
+        }else if(GameState.doorBreak == 0){
+            GameState.doorBreak--;
+            asource.PlayOneShot(doorLockBroke);
+            StartCoroutine(delayLockBroke(doorLockBroke.length + 0.5f));
+        }else if(accessible){
+            if(aninfo.normalizedTime > 1.0f){
             //Animation Finished
+
             an.SetInteger("door1_open",Mathf.Abs(an.GetInteger("door1_open")-1));
             asource.Play();
         }
+        }else{
+            Debug.Log("Something's wrong with door1_anim.cs");
+        }
 
+        Debug.Log(GameState.doorBreak);
+    }
+
+    IEnumerator delayLockBroke(float time)
+    {
+        yield return new WaitForSeconds(time);
+        accessible = true;
+        // panelDescription.SetActive(false);
+    }
+
+    IEnumerator resetDoorPosition(float time)
+    {
+        yield return new WaitForSeconds(time);
+        gameObject.transform.rotation = Quaternion.Euler(0,90,0);
+        clickable = true;
+        // panelDescription.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(an.GetInteger("door1_open") == 1){
+       if(an.GetInteger("door1_open") == 1){
             if(asource.time >= 1.5f){
                 asource.Pause();
             }
