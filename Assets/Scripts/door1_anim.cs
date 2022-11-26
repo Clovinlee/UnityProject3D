@@ -22,8 +22,12 @@ public class door1_anim : MonoBehaviour
 
     void OnMouseDown()
     {
+<<<<<<< HEAD
         if(EventSystem.current.IsPointerOverGameObject() || Freedom.cekDistance(gameObject))
         {
+=======
+        if(EventSystem.current.IsPointerOverGameObject()){
+>>>>>>> parent of 2f871616 (animasi berjalan)
             return;
         }
         AnimatorStateInfo aninfo = an.GetCurrentAnimatorStateInfo(0);

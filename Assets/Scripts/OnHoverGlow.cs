@@ -14,8 +14,12 @@ public class OnHoverGlow : MonoBehaviour
 
     void OnMouseEnter()
     {
+<<<<<<< HEAD
         if(EventSystem.current.IsPointerOverGameObject() || Freedom.cekDistance(gameObject))
         {
+=======
+        if(EventSystem.current.IsPointerOverGameObject()){
+>>>>>>> parent of 2f871616 (animasi berjalan)
             return;
         }
 

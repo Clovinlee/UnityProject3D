@@ -18,7 +18,11 @@ public class GameState : MonoBehaviour
     public GameObject figureMan;
     public static int doorBreak = 5;
     public static int windowBreak = 10;
+<<<<<<< HEAD
     public float minDistance = 2.5f;
+=======
+
+>>>>>>> parent of 2f871616 (animasi berjalan)
 
     void Start()
     {

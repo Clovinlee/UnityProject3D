@@ -9,6 +9,10 @@ public class ObjectClick : MonoBehaviour
 {
 
     public GameObject descriptionPanel;
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 2f871616 (animasi berjalan)
     private Animator an;
     public int id;
 
@@ -21,7 +25,11 @@ public class ObjectClick : MonoBehaviour
     void OnMouseDown()
     {
 
+<<<<<<< HEAD
         if(EventSystem.current.IsPointerOverGameObject() || GameState.objActive != null || Freedom.cekDistance(gameObject)){
+=======
+        if(EventSystem.current.IsPointerOverGameObject() || GameState.objActive != null){
+>>>>>>> parent of 2f871616 (animasi berjalan)
             return;
         }
 
