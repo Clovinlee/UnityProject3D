@@ -22,7 +22,8 @@ public class door1_anim : MonoBehaviour
 
     void OnMouseDown()
     {
-        if(EventSystem.current.IsPointerOverGameObject()){
+        if(EventSystem.current.IsPointerOverGameObject() || Freedom.cekDistance(gameObject))
+        {
             return;
         }
         AnimatorStateInfo aninfo = an.GetCurrentAnimatorStateInfo(0);

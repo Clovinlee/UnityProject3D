@@ -9,7 +9,6 @@ public class ObjectClick : MonoBehaviour
 {
 
     public GameObject descriptionPanel;
-
     private Animator an;
     public int id;
 
@@ -22,15 +21,15 @@ public class ObjectClick : MonoBehaviour
     void OnMouseDown()
     {
 
-        if(EventSystem.current.IsPointerOverGameObject() || GameState.objActive != null){
+        if(EventSystem.current.IsPointerOverGameObject() || GameState.objActive != null || Freedom.cekDistance(gameObject)){
             return;
         }
 
         GameState.objActive = gameObject;
-
         AudioSource asource = gameObject.GetComponent<AudioSource>();
         asource.Play();
         an.SetInteger("move",1);
+        Freedom.f = false;
         StartCoroutine(waitForAnim(an.GetCurrentAnimatorStateInfo(0).length+0.5f));
         
     }
@@ -41,7 +40,9 @@ public class ObjectClick : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         changeText(descriptionPanel, DataDescription.listData[id]);
+        Freedom.pointer.SetActive(false);
         descriptionPanel.SetActive(true);
+        Cursor.lockState = CursorLockMode.Confined;
         // panelDescription.SetActive(false);
     }
 

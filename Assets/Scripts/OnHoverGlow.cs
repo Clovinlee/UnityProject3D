@@ -14,7 +14,8 @@ public class OnHoverGlow : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if(EventSystem.current.IsPointerOverGameObject()){
+        if(EventSystem.current.IsPointerOverGameObject() || Freedom.cekDistance(gameObject))
+        {
             return;
         }
 

@@ -11,6 +11,7 @@ public class GameCanvasUI : MonoBehaviour
     public GameObject panelDescription;
     public AudioClip paperSound;
     public AudioClip clickSound;
+    public GameObject pointer;
 
     private AudioSource asource;
 
@@ -22,6 +23,7 @@ public class GameCanvasUI : MonoBehaviour
     public void forensicButtonPress(){
         asource.clip = paperSound;
         asource.Play();
+        Freedom.f = panelForensic.activeInHierarchy;
         panelForensic.SetActive(!panelForensic.activeInHierarchy);
     }
 
@@ -35,13 +37,15 @@ public class GameCanvasUI : MonoBehaviour
         GameState.objActive.GetComponent<Animator>().SetInteger("move",0);
         GameState.objActive = null;
         panelDescription.SetActive(false);
+        Freedom.f = true;
+        pointer.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Fire1")){
-            if(panelForensic != null && panelForensic.activeInHierarchy){
+        if(Input.GetKeyDown("tab")){
+            if(panelForensic != null){
                 forensicButtonPress();
             }
         }

@@ -16,13 +16,14 @@ public class GameState : MonoBehaviour
 
     public GameObject sirenLight;
     public GameObject figureMan;
-
     public static int doorBreak = 5;
     public static int windowBreak = 10;
-
+    public float minDistance = 2.5f;
 
     void Start()
     {
+        Freedom.player = gameObject;
+        Freedom.minDistance = minDistance;
         asource = gameObject.GetComponent<AudioSource>();
         asource.Play();
         //Cop will show at 
