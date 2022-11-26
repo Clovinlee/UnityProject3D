@@ -1748,8 +1748,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   copSiren: {fileID: 8300000, guid: 24246f12edd1c004c8cfb4ff8278fd64, type: 3}
   sirenLight: {fileID: 1668131992}
+<<<<<<< HEAD
   figureMan: {fileID: 554438966}
   minDistance: 2.5
+=======
+>>>>>>> parent of 1e4b0445 (Window break)
 --- !u!82 &439281109
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2534,6 +2537,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4257526830169042, guid: 93b148609e46c0449826ca0c4060f841, type: 3}
   m_PrefabInstance: {fileID: 549135780}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &554438966
 GameObject:
   m_ObjectHideFlags: 0
@@ -2618,6 +2622,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of 1e4b0445 (Window break)
 --- !u!1001 &557377798
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4894,8 +4900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d24819f16398b46855043836a45a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windowBreak: {fileID: 8300000, guid: 98044fc9bb07ae1458cdb5e429735b80, type: 3}
-  windowLockBroke: {fileID: 8300000, guid: 6e61a4dfdf6d19a458d7f61825099177, type: 3}
 --- !u!1 &879574948
 GameObject:
   m_ObjectHideFlags: 0
@@ -5382,6 +5386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorBreak: {fileID: 8300000, guid: da0341f87866e8c459140956bb69e17e, type: 3}
   doorLockBroke: {fileID: 8300000, guid: 6e61a4dfdf6d19a458d7f61825099177, type: 3}
+  breakAnimation: {fileID: 7400000, guid: a2fbdd0cc87b34d4191eed6147ddc688, type: 2}
 --- !u!82 &974480038
 AudioSource:
   m_ObjectHideFlags: 0

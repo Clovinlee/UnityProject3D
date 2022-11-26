@@ -8,6 +8,7 @@ public class door1_anim : MonoBehaviour
 
     public AudioClip doorBreak;
     public AudioClip doorLockBroke;
+    public AnimationClip breakAnimation;
     private Animator an;
     private AudioSource asource;
     private bool accessible;
@@ -51,12 +52,10 @@ public class door1_anim : MonoBehaviour
             asource.Play();
         }
         }else{
-            // Debug.Log("Something's wrong with door1_anim.cs");
+            Debug.Log("Something's wrong with door1_anim.cs");
         }
 
-        if(GameState.doorBreak != -1){
-            Debug.Log("Door Break : "+GameState.doorBreak);
-        }
+        Debug.Log(GameState.doorBreak);
     }
 
     IEnumerator delayLockBroke(float time)
