@@ -19,7 +19,12 @@ public class GameState : MonoBehaviour
 
     public static int doorBreak = 5;
     public static int windowBreak = 10;
-
+    public float minDistance = 2.5f;
+    private void Awake()
+    {
+        Freedom.player = gameObject;
+        Freedom.minDistance = this.minDistance;
+    }
 
     void Start()
     {

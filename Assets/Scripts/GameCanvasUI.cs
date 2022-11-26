@@ -23,6 +23,7 @@ public class GameCanvasUI : MonoBehaviour
         asource.clip = paperSound;
         asource.Play();
         panelForensic.SetActive(!panelForensic.activeInHierarchy);
+        Freedom.f = !Freedom.f;
     }
 
     public void descriptionButtonClose(){
@@ -34,6 +35,7 @@ public class GameCanvasUI : MonoBehaviour
         yield return new WaitForSeconds(time);
         GameState.objActive.GetComponent<Animator>().SetInteger("move",0);
         GameState.objActive = null;
+        Freedom.f = true;
         panelDescription.SetActive(false);
     }
 
@@ -44,6 +46,10 @@ public class GameCanvasUI : MonoBehaviour
             if(panelForensic != null && panelForensic.activeInHierarchy){
                 forensicButtonPress();
             }
+        }
+        if (Input.GetKeyDown("tab"))
+        {
+            forensicButtonPress();
         }
     }
 }

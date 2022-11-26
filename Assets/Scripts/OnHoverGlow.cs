@@ -7,6 +7,7 @@ public class OnHoverGlow : MonoBehaviour
 {
     // Start is called before the first frame update
     private int s;
+    public GameObject player;
     void Start()
     {
         
@@ -14,7 +15,8 @@ public class OnHoverGlow : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if(EventSystem.current.IsPointerOverGameObject()){
+        if(EventSystem.current.IsPointerOverGameObject()|| Freedom.cekDistance(gameObject))
+        {
             return;
         }
 

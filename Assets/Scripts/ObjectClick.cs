@@ -9,7 +9,7 @@ public class ObjectClick : MonoBehaviour
 {
 
     public GameObject descriptionPanel;
-
+    public GameObject player;
     private Animator an;
     public int id;
 
@@ -21,8 +21,8 @@ public class ObjectClick : MonoBehaviour
 
     void OnMouseDown()
     {
-
-        if(EventSystem.current.IsPointerOverGameObject() || GameState.objActive != null){
+        if(EventSystem.current.IsPointerOverGameObject() || GameState.objActive != null || Freedom.cekDistance(gameObject))
+        {
             return;
         }
 
@@ -49,7 +49,7 @@ public class ObjectClick : MonoBehaviour
         TextMeshProUGUI txtTitle = pl.transform.Find("txtTitle").GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI txtBody = pl.transform.Find("txtBody").GetComponent<TextMeshProUGUI>();
         Image imgObject = pl.transform.Find("imgObject").GetComponent<Image>();
-
+        Freedom.f = false;
         txtTitle.text = data.getTitle();
         txtBody.text = data.getBody();
         imgObject.sprite = Resources.Load<Sprite>(data.getImg());
