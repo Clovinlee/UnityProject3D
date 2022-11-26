@@ -17,7 +17,7 @@ public class door2_anim : MonoBehaviour
 
     void OnMouseDown()
     {
-        if(EventSystem.current.IsPointerOverGameObject()){
+        if(EventSystem.current.IsPointerOverGameObject()||Freedom.cekDistance(gameObject)){
             return;
         }
 
